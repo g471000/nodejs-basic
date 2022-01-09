@@ -48,3 +48,14 @@ Trace: Find Error Location...
     at node:internal/main/run_main_module:17:47
 Timer: 11.309ms
 ```
+
+## Timer
+Also, there is a function of using as a timer to run functions/logs once, internally or immediately. Check out by run the `timer.js` like below:
+```
+> node timer.js
+Run immediately
+Run every 1 second
+Run after 1.5 seconds
+Run every 1 second
+```
+
