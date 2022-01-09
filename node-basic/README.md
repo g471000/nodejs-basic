@@ -1,6 +1,5 @@
 # Node Basic
 ## helloWorld.js
------
 We can run the basic hello world code using node.
 ```
 node helloWorld.js
