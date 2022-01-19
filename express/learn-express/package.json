@@ -1,0 +1,11 @@
+{
+  "name": "learn-express",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "dependencies": {
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
+  }
+}
