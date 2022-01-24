@@ -3,12 +3,25 @@ const path = require('path');
 const morgan = require("morgan");
 const multer = require('multer');
 const fs = require("fs");
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
+const dotenv = require("nodemon");
 
+dotenv.config()
 const app = express();
 
 app.set('port', process.env.PORT || 3000);
 
 app.use(morgan('combined'));
+app.use(cookieParser(process.env.COOKIE_SECRET));
+app.use(session({
+    resave: false,
+    saveUninitialized: false,
+    secret: process.env.COOKIE_SECRET,
+    cookie: {
+        httpOnly: true
+    }
+}))
 
 app.use((req, res, next) => {
     console.log('1 Want to run for every request!')
@@ -24,7 +37,7 @@ app.use((req, res, next) => {
 try {
     fs.readdirSync('uploads');
 } catch (error) {
-   console.error('uploads folder not existed. Creating uploads folder....')
+    console.error('uploads folder not existed. Creating uploads folder....')
     fs.mkdirSync('uploads');
 }
 
