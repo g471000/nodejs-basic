@@ -8,6 +8,8 @@ const session = require("express-session");
 const dotenv = require("nodemon");
 
 dotenv.config()
+const indexRouter = require('./routes');
+const userRouter = require('./routes/user');
 const app = express();
 
 app.set('port', process.env.PORT || 3000);
@@ -22,6 +24,9 @@ app.use(session({
         httpOnly: true
     }
 }))
+
+app.use('/', indexRouter);
+app.use('/user', userRouter);
 
 app.use((req, res, next) => {
     console.log('1 Want to run for every request!')
